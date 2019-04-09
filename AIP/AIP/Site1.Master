@@ -1,0 +1,121 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="AIP.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" style="background: url('images/coins.jpg') no-repeat center center fixed;-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;" >
+<head id="Head1" runat="server">
+    <title></title>
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: black;
+    color: #11abb0;
+}
+
+.active {
+  background-color: #11abb0;
+}
+</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color: transparent;" >
+    <form id="form1" runat="server">
+    <div >
+        <br />
+        
+<ul id="top" >
+    <li style="float:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:ImageButton ID="ImageButton1" runat="server"  ImageUrl="~/images/logoaip1.png" Height="40px"  /></li>
+  
+  
+ 
+  <li style="float:right" class="top_header"><a  href="#about">About</a></li>
+    
+     <li style="float:right;" ><a class="dropdown-toggle top_header" data-toggle="dropdown" href="#contact" id="reg">Registration <span class="caret"></span></a>
+         <ul class="dropdown-menu" style="background-color:#333">
+             <li><a href="Admin_Registration.aspx" style="color:white" onMouseOver=" this.style.background='black'; this.style.color='#11abb0'" onMouseOut="this.style.background='#333';  this.style.color='#fff'">Admin</a></li>
+             <li><a href="User_Registration.aspx" style="color:white" onMouseOver=" this.style.background='black'; this.style.color='#11abb0'" onMouseOut="this.style.background='#333';  this.style.color='#fff'">User</a></li>
+          
+             </ul>
+     </li>
+    <li style="float:right"><a href="AIPlogin.aspx" class="top_header">Login</a></li>
+    <li style="float:right"><a href="Home.aspx" class="top_header">Home</a></li>
+      
+</ul>   <br />
+        <br />
+        <br />
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+     <script>
+         var url = window.location;
+
+         $(document).ready(function () {
+
+
+
+
+             $('#top .top_header').each(function () {
+
+                 if (this.href == url) {
+                     $('#top').find('.active').removeClass('active');
+                     $(this).parent().addClass('active');
+                 }
+
+
+             });
+
+             $('.drop-menu').each(function () {
+
+                 if (this.href == url) {
+                     $('#top').find('.active').removeClass('active');
+                     $(this).parent().addClass('active');
+                 }
+
+
+             });
+             //$('.dropdown-menu').each(function () {
+             //    console.log(this.href);
+             //    if (this.href == url) {
+             //        $('#top').find('.active').removeClass('active');
+             //        $('#reg').removeClass('dropdown-toggle');
+             //        $('#reg').addClass('dropdown-toggle active');
+             //    }
+
+             //});
+         });
+         //alert(url);
+
+    </script>
+</body>
+</html>
